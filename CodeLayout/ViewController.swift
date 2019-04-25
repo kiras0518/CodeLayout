@@ -11,58 +11,146 @@ import UIKit
 class FeedCell: UITableViewCell {
     
     lazy var backView: UIView = {
-        let view = UIView(frame: CGRect(x: 10, y: 6, width: self.frame.width - 20, height: self.frame.height - 20))
+       
+        let view = UIView()
+        
+        view.translatesAutoresizingMaskIntoConstraints = false
+        
         view.backgroundColor = UIColor.green
+   
+        view.widthAnchor.constraint(equalToConstant: 420).isActive = true
+        
+        view.heightAnchor.constraint(equalToConstant: 350).isActive = true
+        
         return view
     }()
     
     lazy var appImage: UIImageView = {
-        let image = UIImageView(frame: CGRect(x: 8, y: 8, width: 80, height: 80))
+        
+        let image = UIImageView()
+        
+        image.translatesAutoresizingMaskIntoConstraints = false
+        
         image.backgroundColor = UIColor.red
+
+        image.widthAnchor.constraint(equalToConstant: 80).isActive = true
+        
+        image.heightAnchor.constraint(equalToConstant: 80).isActive = true
+        
         return image
     }()
     
     lazy var nameLabel: UILabel = {
-        let label = UILabel(frame: CGRect(x: 116, y: 8, width: backView.frame.width - 116, height: 30))
+        
+        let label = UILabel()
+        
+        label.translatesAutoresizingMaskIntoConstraints = false
+        
+        //label.backgroundColor = UIColor.yellow
+        
         label.textAlignment = .left
+        
+        label.widthAnchor.constraint(equalToConstant: 120).isActive = true
+        
+        label.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        
         return label
     }()
     
     lazy var typeLabel: UILabel = {
-        let label = UILabel(frame: CGRect(x: 116, y: 42, width: backView.frame.width - 116, height: 30))
+        
+        let label = UILabel()
+        
+        label.translatesAutoresizingMaskIntoConstraints = false
+        
+        //label.backgroundColor = UIColor.red
+        
         label.textAlignment = .left
+        
+        label.widthAnchor.constraint(equalToConstant: 120).isActive = true
+        
+        label.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        
         return label
     }()
     
     lazy var sizeLabel: UILabel = {
-        let label = UILabel(frame: CGRect(x: 116, y: 76, width: backView.frame.width - 116, height: 30))
+       
+        let label = UILabel()
+        
+        label.translatesAutoresizingMaskIntoConstraints = false
+        
+        //label.backgroundColor = UIColor.blue
+        
         label.textAlignment = .left
+        
+        label.widthAnchor.constraint(equalToConstant: 120).isActive = true
+        
+        label.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        
         return label
     }()
     
     lazy var getButton: UIButton = {
-        let button = UIButton(frame: CGRect(x: 300, y: 42, width: 70, height: 30))
+     
+        let button = UIButton()
+        
+        button.translatesAutoresizingMaskIntoConstraints = false
+        
         button.setTitle("Get", for: .normal)
+        
         button.backgroundColor = UIColor.darkGray
+        
         button.layer.cornerRadius = 15
+        
+        button.widthAnchor.constraint(equalToConstant: 70).isActive = true
+        
+        button.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        
         return button
     }()
     
     lazy var myImage: UIImageView = {
-        let image = UIImageView(frame: CGRect(x: 8, y: 120, width: 100, height: 200))
+        
+        let image = UIImageView()
+        
+        image.translatesAutoresizingMaskIntoConstraints = false
+        
         image.backgroundColor = UIColor.blue
+        
+        image.widthAnchor.constraint(equalToConstant: 100).isActive = true
+        
+        image.heightAnchor.constraint(equalToConstant: 200).isActive = true
+        
         return image
     }()
 
     lazy var myImage1: UIImageView = {
-        let image = UIImageView(frame: CGRect(x: 150, y: 120, width: 100, height: 200))
+        
+        let image = UIImageView()
+        
+        image.translatesAutoresizingMaskIntoConstraints = false
+        
         image.backgroundColor = UIColor.blue
+        
+        image.widthAnchor.constraint(equalToConstant: 100).isActive = true
+        
+        image.heightAnchor.constraint(equalToConstant: 200).isActive = true
+        
         return image
     }()
     
     lazy var myImage2: UIImageView = {
-        let image = UIImageView(frame: CGRect(x: 285, y: 120, width: 100, height: 200))
+        let image = UIImageView()
+        
+        image.translatesAutoresizingMaskIntoConstraints = false
+        
         image.backgroundColor = UIColor.blue
+        
+        image.widthAnchor.constraint(equalToConstant: 100).isActive = true
+        
+        image.heightAnchor.constraint(equalToConstant: 200).isActive = true
+        
         return image
     }()
     
@@ -77,6 +165,31 @@ class FeedCell: UITableViewCell {
         backView.addSubview(myImage)
         backView.addSubview(myImage1)
         backView.addSubview(myImage2)
+        
+        appImage.leftAnchor.constraint(equalTo: backView.leftAnchor, constant: 10).isActive = true
+        appImage.topAnchor.constraint(equalTo: backView.topAnchor, constant: 10).isActive = true
+        
+        getButton.leftAnchor.constraint(equalTo: appImage.rightAnchor, constant: 220).isActive = true
+        getButton.topAnchor.constraint(equalTo: backView.topAnchor, constant: 35).isActive = true
+        
+        nameLabel.topAnchor.constraint(equalTo: backView.topAnchor, constant: 5).isActive = true
+        nameLabel.leftAnchor.constraint(equalTo: appImage.rightAnchor, constant: 30).isActive = true
+        
+        typeLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 1).isActive = true
+        typeLabel.leftAnchor.constraint(equalTo: appImage.rightAnchor, constant: 30).isActive = true
+        
+        sizeLabel.topAnchor.constraint(equalTo: typeLabel.bottomAnchor, constant: 1).isActive = true
+        sizeLabel.leftAnchor.constraint(equalTo: appImage.rightAnchor, constant: 30).isActive = true
+        
+        myImage.topAnchor.constraint(equalTo: appImage.bottomAnchor, constant: 10).isActive = true
+        myImage.leftAnchor.constraint(equalTo: backView.leftAnchor, constant: 10).isActive = true
+        
+        myImage1.topAnchor.constraint(equalTo: appImage.bottomAnchor, constant: 10).isActive = true
+        myImage1.leftAnchor.constraint(equalTo: myImage.rightAnchor, constant: 45).isActive = true
+        
+        myImage2.topAnchor.constraint(equalTo: appImage.bottomAnchor, constant: 10).isActive = true
+        myImage2.leftAnchor.constraint(equalTo: myImage1.rightAnchor, constant: 45).isActive = true
+        
     }
 }
 
@@ -128,8 +241,8 @@ class ViewController: UIViewController {
         tableView.frame = self.view.frame
         tableView.delegate = self
         tableView.dataSource = self
-        //tableView.separatorColor = UIColor.clear
-        tableView.backgroundColor = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
+        tableView.separatorColor = UIColor.clear
+        //tableView.backgroundColor = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
         self.view.addSubview(tableView)
         
         tableView.register(FeedCell.self, forCellReuseIdentifier: "Cell")
@@ -145,7 +258,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
             cell.nameLabel.text = infoArray[indexPath.row].appName
             cell.typeLabel.text = infoArray[indexPath.row].typeLabel
             cell.sizeLabel.text = infoArray[indexPath.row].sizeLabel
-            //cell.textLabel?.text = "\(indexPath.row)"
+            cell.textLabel?.text = "\(indexPath.row)"
             
             return cell
         }
